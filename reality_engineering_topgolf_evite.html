@@ -369,8 +369,8 @@
   }
 
   .qr-placeholder {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     margin: 0 auto 20px;
     background: var(--white);
     border: 2px solid var(--light-gray);
@@ -378,11 +378,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    padding: 10px;
   }
 
-  .qr-placeholder canvas {
+  .qr-placeholder img {
     display: block;
+    width: 100%;
+    height: auto;
   }
 
   .qr-card p {
@@ -511,7 +513,7 @@
     <div class="qr-card">
       <h3>Scan to Register</h3>
       <div class="qr-placeholder">
-        <canvas id="qrCanvas" width="180" height="180"></canvas>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAIAAAAiOjnJAAAFiElEQVR4nO3dQZIjJxAF0BmHT+O17+Oz+T5e+zrtraMWiIT8FNPx3nakKtTzg0ClJPn59fX1A7r99vYA+J4EiwjBIkKwiBAsIgSLCMEiQrCIECwifh//859//H1gEP/8+1fipqHL7ngMadnjs7zyScefxYxFhGARIVhECBYRHxbvD6G154UGy+HxSnn8r8uL7scrS/8Rr/yvmbGIECwiBIsIwSKitnh/mF/NhRabO18Clpe0jd885i81XvWHbrpzFzMWEYJFhGARsbXGClleT5QeXYbGMDa+zvxNQ8NrZMYiQrCIECwiBIuIGxfv8yvc8SsbV+vzdQelZfV3Wq0/mLGIECwiBIsIwSJia/F+2xKyVHewU+x7xnI99NiZT2rGIkKwiBAsIgSLiNri/cx+wK6nzKVWGfM33dlX+MpXhFd2cZqxiBAsIgSLCMEi4ueFZ+mc2fh25qbjy3btoLzwZwMzFhGCRYRgESFYRNTacXdVgo/NP7xu7Eo9/97QZatXnr/Oct39zjcGMxYRgkWEYBEhWES01byP+04P3vjxxQ9dG1ZDI9x5CL7cA3z+Oh9HOP+FbMyMRYRgESFYRAgWER8W712NX0pHyiwPqbSk3VkOz7+xZPnP0jiGrgocMxYRgkWEYBGxddh4fKFBV2O7H8OFXeNduprrnTkVPNSH3JEnXEewiBAsIgSLiNq+wq6u1Gd225Us10OXrrMzpIHGYoeuOg4zFhGCRYRgESFYRLQ9eS/pWuHuFB+PX7x8+mbpxcuHjZcstzLcuakZiwjBIkKwiBAsImr7CpeLSUL74Hb6c5QuNd8jZOeInvl9hWM7HcLtK+RqgkWEYBEhWES0teNufEYf2uK3U8EdOo5mubr/lY2EpR8nzFhECBYRgkWEYBGx1dGv69Hw8k1zQsUkXTc9c4iQDatcR7CIECwiBIuIQ0/eH244zL1rDF3NrktC3Xsax2DGIkKwiBAsIgSLiENP3kvtuLv6U+6Yv3Kokc54PDuW/7wlZiwiBIsIwSJia431f6HjxKtXDl12vgRg53TxUK+UMy38HsxYRAgWEYJFhGARkSpNPrPN8Mz2utIYQov3h8ayjlCFiBmLCMEiQrCIECwi2spmdp723tCOe35Ix9qfLCv9tUN7PM1YRAgWEYJFhGARUVu8L1dcNDaxmL/p+C7j9y5/gdipeR8MaedLwJljRx/MWEQIFhGCRYRgEVE7xT60lbTrvblNs2uv3HTmjPv53xjUvPM+wSJCsIgQLCLaat4b3VACP3DsyM8zQruFzVhECBYRgkWEYBGxVTYTOh6yq/HLw5kTZnaW9jccMTSgbIb3CRYRgkXEhweky7/kN9YBn3mKGDqMpKspyJnCjUZmLCIEiwjBIkKwiPjwgHT+KWLp0d/Obrv5uzRabgqyfJfHjRr/gMuPcJUm8z7BIkKwiBAsIn6B0uRQz+quCuPGPX3LV26s8rCvkKsJFhGCRYRgEVFrChKyvPYMtc8r3XTszJmU48uGKoLGzFhECBYRgkWEYBFR21fYVTHS9Z2gsVi+a0ilp9Vnat5LHITJ1QSLCMEiQrCI2DoIM1TXMf/ixp2Zy+/NnWI//xtDY3vzQaMXTUF4n2ARIVhECBYRbafYN+o6Q6bxiMr53oWvtMoZW/56oead6wgWEYJFhGARcePivcvODtXBo+1XHoLnaMfNr0SwiBAsIrbWWKFFwHLBbmNXwfnGdqW7dO2gvLCf+YMZiwjBIkKwiBAsIrbOKwx55cCZ+TE0fmUJ/T271vI7bVTMWEQIFhGCRYRgEXFjO26+ATMWEYJFhGARIVhECBYRgkWEYBEhWEQIFhH/AUaOhc07TkV9AAAAAElFTkSuQmCC" alt="QR Code - Scan to RSVP" style="width:200px;height:200px;display:block;">
       </div>
       <p>Point your phone camera at the code to open this registration page.</p>
     </div>
@@ -525,65 +527,9 @@
 </footer>
 
 <script>
-// ── QR CODE GENERATOR (lightweight, no dependencies) ──
-// Generates a simple QR-like pattern for visual placeholder
-(function() {
-  const canvas = document.getElementById('qrCanvas');
-  const ctx = canvas.getContext('2d');
-  const size = 180;
-  const modules = 25;
-  const cellSize = size / modules;
-  const darkColor = '#3329A0';
-  const lightColor = '#ffffff';
-
-  // Seed-based pseudo-random for consistent pattern
-  let seed = 42;
-  function seededRandom() {
-    seed = (seed * 16807) % 2147483647;
-    return (seed - 1) / 2147483646;
-  }
-
-  // Draw background
-  ctx.fillStyle = lightColor;
-  ctx.fillRect(0, 0, size, size);
-
-  // Draw QR-like finder patterns (corners)
-  function drawFinder(x, y) {
-    const s = cellSize;
-    ctx.fillStyle = darkColor;
-    ctx.fillRect(x, y, 7*s, 7*s);
-    ctx.fillStyle = lightColor;
-    ctx.fillRect(x+s, y+s, 5*s, 5*s);
-    ctx.fillStyle = darkColor;
-    ctx.fillRect(x+2*s, y+2*s, 3*s, 3*s);
-  }
-
-  drawFinder(0, 0);
-  drawFinder((modules-7)*cellSize, 0);
-  drawFinder(0, (modules-7)*cellSize);
-
-  // Fill data area with seeded pattern
-  for (let row = 0; row < modules; row++) {
-    for (let col = 0; col < modules; col++) {
-      // Skip finder pattern areas
-      if ((row < 8 && col < 8) || (row < 8 && col > modules-9) || (row > modules-9 && col < 8)) continue;
-      if (seededRandom() > 0.5) {
-        ctx.fillStyle = darkColor;
-        ctx.fillRect(col*cellSize, row*cellSize, cellSize, cellSize);
-      }
-    }
-  }
-
-  // Timing patterns
-  for (let i = 8; i < modules-8; i++) {
-    ctx.fillStyle = i % 2 === 0 ? darkColor : lightColor;
-    ctx.fillRect(6*cellSize, i*cellSize, cellSize, cellSize);
-    ctx.fillRect(i*cellSize, 6*cellSize, cellSize, cellSize);
-  }
-})();
 
 // ── FORM VALIDATION & SUBMISSION ──
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwq-RhCQ8HyZst2yIH-c-9u5yAqKPdujRGcOxAhT6jbbomIQEpnLpuJ1hUD6zCuHUBmrw/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbznMk8MMtkgY8jk5MJbMXr0fCW6WZQxsxNyH9EWDOP5tJACHkAI0JBxhT6y48N8Qk2eoQ/exec';
 
 document.getElementById('submitBtn').addEventListener('click', function() {
   const btn = this;
