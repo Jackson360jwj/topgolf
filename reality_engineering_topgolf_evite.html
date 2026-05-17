@@ -583,9 +583,9 @@
 })();
 
 // ── FORM VALIDATION & SUBMISSION ──
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyQUYKxjfGpPFHlliQdTsE2voMRt-QUEopilzBoYln-G4Li4B4gTBr8Xn3vkn9qozbKog/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxoSnObp4ryNKXWUDrEeK-uwDiSr60sPeLuoh0mXSYd05DnUKYCRnG5pZ_1VD-v8dvbDA/exec';
 
-document.getElementById('submitBtn').addEventListener('click', async function() {
+document.getElementById('submitBtn').addEventListener('click', function() {
   const btn = this;
   const name = document.getElementById('fname');
   const email = document.getElementById('femail');
@@ -605,24 +605,21 @@ document.getElementById('submitBtn').addEventListener('click', async function() 
     btn.textContent = 'Submitting...';
     btn.style.opacity = '0.7';
 
-    try {
-      await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: name.value.trim(),
-          email: email.value.trim(),
-          company: company.value.trim()
-        })
-      });
-    } catch (err) {
-      // no-cors won't give us a readable response, but data still posts
-      console.log('Submitted (no-cors mode)');
-    }
+    // Build GET URL with query parameters (works reliably cross-origin)
+    const params = new URLSearchParams({
+      name: name.value.trim(),
+      email: email.value.trim(),
+      company: company.value.trim()
+    });
+    const submitUrl = GOOGLE_SCRIPT_URL + '?' + params.toString();
 
-    document.getElementById('formView').style.display = 'none';
-    document.getElementById('successView').style.display = 'block';
+    // Use an image ping — guaranteed to work, no CORS issues
+    const img = new Image();
+    img.onload = img.onerror = function() {
+      document.getElementById('formView').style.display = 'none';
+      document.getElementById('successView').style.display = 'block';
+    };
+    img.src = submitUrl;
   }
 });
 
